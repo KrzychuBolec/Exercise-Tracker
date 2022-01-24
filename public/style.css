@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
 animation: AnimateBG 100s infinite;
 height: 100vh;
+font-family: 'Bebas Neue', cursive;
 }
 
 
@@ -30,7 +31,6 @@ height: 100vh;
   box-shadow: 2px 2px 2px rgba(5, 0, 0, 0.63);
   display: flex;
   flex-direction: row;
-  font-family: "Permanent Marker", cursive;
   box-shadow: inset 2px 2px 5px white, inset -2px -2px 2px black;
   position: absolute;
   top: 0%;
@@ -94,7 +94,6 @@ height: 100vh;
   font-size: 20px;
   color: white;
   text-shadow: 2px 2px 2px black;
-  font-family: "Permanent Marker", cursive;
 }
 #user-panel {
 }
@@ -118,7 +117,6 @@ form {
   flex-direction: column;
 }
 input[type="submit"] {
-  font-family: "Permanent Marker", cursive;
   margin-top: 10px;
   background-color: rgb(1, 192, 1);
   border: none;
@@ -138,11 +136,18 @@ input[type="text"] {
   padding: 5px;
   font-size: 15px;
   box-shadow: inset 2px 2px 5px white, inset -2px -2px 2px black;
+  margin-top: 5px;
 }
 input[type="submit"]:focus {
   box-shadow: inset 2px 2px 5px black, inset -2px -2px 5px white;
   background-color: rgb(5, 167, 5);
 }
+img{
+    width: inherit;
+    height: inherit;
+    background: none;
+}
+
 
 /*MEDIA QUERIES*/
 

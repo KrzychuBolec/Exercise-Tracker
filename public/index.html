@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><p>WORKOUT SCHEDULER</p></div>
+      <div class="navigation">
+        <div class="tile"><p>Start</p></div>
+        <div class="tile"><p>About Us</p></div>
+        <div class="tile"><p>Contact</p></div>
+      </div>
+    </nav>
+
+    <div class="schedule_container">
+      <div class="working-tile" id="user-panel">
+        <p>Create a New User</p>
+        <form method="post" action="/api/users" name="user" class="form">
+          <label for="username">Choose your username</label>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            autocomplete="off"
+          />
+          <input type="submit" value="Submit!" />
+        </form>
+      </div>
+      <div class="working-tile" id="exercise-panel">
+        <p>Add Workout</p>
+        <form method="post" action="/api/users" name="user" class="form">
+          <label for="ID">Place your ID</label>
+          <input
+            type="text"
+            placeholder="ex: '_12345678'"
+            name="ID"
+            autocomplete="off"
+          />
+          <label for="description">Exercise Description</label>
+          <input
+            type="text"
+            placeholder="ex: 'Running'"
+            name="description"
+            autocomplete="off"
+          />
+          <label for="duration">Exercise Duration</label>
+          <input
+            type="text"
+            placeholder="Duration (min)"
+            name="duration"
+            autocomplete="off"
+          />
+          <label for="date">Exercise Date</label>
+          <input
+            type="text"
+            placeholder="Date (YYYY-MM-DD)"
+            name="date"
+            autocomplete="off"
+          />
+          <input type="submit" value="Submit!" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

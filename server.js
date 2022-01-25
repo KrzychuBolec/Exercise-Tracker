@@ -18,6 +18,8 @@ app.get("/api/users",handlers.getAllRecords)
 
 app.post("/api/users/:_id/exercises",handlers.addExercise)
 
+app.get("/api/users/:_id/logs",handlers.findLog)
+
 app.get("/",handlers.getHomepage)
 
 app.listen(3000,()=>{

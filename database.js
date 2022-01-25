@@ -83,8 +83,26 @@ const addExercises = (userData, res, done) => {
   );
 };
 
+const findAndReturnLogs = (id,res) =>{
+    Person.findById(id,(err, doc)=>{
+        if(err){
+            console.log(err)
+            res.send(err)
+        }else{
+            res.send({
+                username: doc.username,
+                count: doc.log.length +1,
+                _id: doc._id,
+                log: doc.log
+            })
+        }
+    })
+}
+
+
 module.exports = {
   createUser,
   findAll,
   addExercises,
+  findAndReturnLogs
 };

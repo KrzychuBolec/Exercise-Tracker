@@ -22,9 +22,15 @@ let addExercise =(req,res,done)=>{
     database.addExercises(userdata,res,done)
 }
 
+let findLog = (req,res)=>{
+    let ID = req.params._id
+    database.findAndReturnLogs(ID,res)
+}
+
 module.exports = {
   create_user,
   getHomepage,
   getAllRecords,
-  addExercise
+  addExercise,
+  findLog
 };

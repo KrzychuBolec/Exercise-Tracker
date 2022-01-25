@@ -26,7 +26,7 @@ const createUser = (userData, res) => {
   user.save((err, data) => {
     if (err) {
       console.log(err);
-      res.send(err)
+      res.send(err);
     } else {
       console.log(data);
       res.send({ username: data.username, _id: data._id });
@@ -35,7 +35,6 @@ const createUser = (userData, res) => {
 };
 
 const findAll = (done, res) => {
-  let database = [];
   Person.find({}, { username: 1, _id: 1 }, (err, data) => {
     if (err) {
       console.log(err);
@@ -47,14 +46,13 @@ const findAll = (done, res) => {
 };
 
 const addExercises = (userData, res, done) => {
-     let exDate = null
-     
-     if(userData.date !=""){
-         exDate = new Date(userData.date).toDateString()
-     }else{
-         exDate = new Date().toDateString()
-     }
-    
+  let exDate = null;
+
+  if (userData.date) {
+    exDate = new Date(userData.date).toDateString();
+  } else {
+    exDate = new Date().toDateString();
+  }
 
   Person.findOneAndUpdate(
     { _id: userData.ID },
@@ -67,13 +65,19 @@ const addExercises = (userData, res, done) => {
         },
       },
     },
-    {new:true},
+    { new: true },
     (err, doc) => {
       if (err) {
         console.log(err);
       } else {
         console.log(doc);
-        res.send({username: doc.username, description : userData.description,duration:userData.duration,date:exDate,_id:doc._id});
+        res.send({
+          username: doc.username,
+          description: userData.description,
+          duration: userData.duration,
+          date: exDate,
+          _id: doc._id,
+        });
       }
     }
   );

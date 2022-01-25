@@ -18,6 +18,7 @@ let getAllRecords = (req,res,done) => {
 let addExercise =(req,res,done)=>{
     console.log(req.params)
     let userdata = {ID: req.params._id, description: req.body.description, duration: req.body.duration, date: req.body.date}
+    console.log(userdata)
     database.addExercises(userdata,res,done)
 }
 

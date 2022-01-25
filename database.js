@@ -47,7 +47,15 @@ const findAll = (done, res) => {
 };
 
 const addExercises = (userData, res, done) => {
-    let exDate = new Date(userData.date).toDateString()
+     let exDate = null
+     
+     if(userData.date !=""){
+         exDate = new Date(userData.date).toDateString()
+     }else{
+         exDate = new Date().toDateString()
+     }
+    
+
   Person.findOneAndUpdate(
     { _id: userData.ID },
     {

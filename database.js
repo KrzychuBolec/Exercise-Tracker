@@ -83,8 +83,12 @@ const addExercises = (userData, res, done) => {
   );
 };
 
-const findAndReturnLogs = (id,res) =>{
-    Person.findById(id,(err, doc)=>{
+const findAndReturnLogs = (id,req,res) =>{
+    let limitNum = (req.query.limit == undefined)? 0: req.query.limit
+    let from = req.query.from
+    let to = req.query.to
+
+    Person.findById(id,null,{log:{$slice: limit}},(err, doc)=>{
         if(err){
             console.log(err)
             res.send(err)

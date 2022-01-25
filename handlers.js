@@ -24,7 +24,7 @@ let addExercise =(req,res,done)=>{
 
 let findLog = (req,res)=>{
     let ID = req.params._id
-    database.findAndReturnLogs(ID,res)
+    database.findAndReturnLogs(ID,req,res)
 }
 
 module.exports = {

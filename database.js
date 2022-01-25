@@ -74,7 +74,7 @@ const addExercises = (userData, res, done) => {
         res.send({
           username: doc.username,
           description: userData.description,
-          duration: userData.duration,
+          duration: parseInt(userData.duration),
           date: exDate,
           _id: doc._id,
         });

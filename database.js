@@ -83,31 +83,70 @@ const addExercises = (userData, res, done) => {
   );
 };
 
-const findAndReturnLogs = (id,req,res) =>{
-    let limitNum = (req.query.limit == undefined)? 0: req.query.limit
-    console.log(`Limit is equal ${limitNum}`)
-    let from = req.query.from
-    let to = req.query.to
-
-    Person.findById(id,null,{log:{$slice: limitNum}},(err, doc)=>{
-        if(err){
-            console.log(err)
-            res.send(err)
-        }else{
-            res.send({
-                username: doc.username,
-                count: doc.log.length +1,
-                _id: doc._id,
-                log: doc.log
-            })
+const findAndReturnLogs = (id, req, res) => {
+  if (req.query.limit != undefined) {
+    Person.findById(
+      id,
+      { log: { $slice: parseInt(req.query.limit) } },
+      null,
+      (err, doc) => {
+        if (err) {
+          console.log(err);
+          res.send(err);
+        } else {
+          console.log(doc);
+          res.send({
+            username: doc.username,
+            count: doc.log.length,
+            _id: doc._id,
+            log: doc.log,
+          });
         }
-    })
-}
+      }
+    );
+  } else {
+    let from =
+      req.query.from != undefined
+        ? new Date(req.query.from)
+        : new Date(0, 0, 0);
+    let to = req.query.to != undefined ? new Date(req.query.to) : new Date();
 
+    let username;
+    let _id;
+    let log;
+
+    Person.findById(id, null, null, (err, doc) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        username = doc.username;
+        _id = doc._id;
+        console.log(doc.log);
+        log = doc.log.filter((item) => {
+          if (new Date(item.date) > from && new Date(item.date) < to) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        res.send({
+          username: username,
+          count: log.length,
+          _id: _id,
+          log: log,
+        });
+      }
+    });
+  }
+
+  //,"log.date":{$gt:[new Date("log.date"),new Date(from)]}
+};
 
 module.exports = {
   createUser,
   findAll,
   addExercises,
-  findAndReturnLogs
+  findAndReturnLogs,
 };

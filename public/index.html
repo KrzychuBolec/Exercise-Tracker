@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="public/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
+    <script src="public/site-script.js"></script>
   </head>
   <body>
     <nav class="navbar">
       <div class="logo">
         <p>WORKOUT SCHEDULER</p>
-        <img src="../resources/transparent-notebook.gif" />
+        <img src="/resources/transparent-notebook.gif" />
       </div>
       <div class="navigation">
         <div class="tile"><p>Start</p></div>
@@ -40,13 +41,14 @@
       </div>
       <div class="working-tile" id="exercise-panel">
         <p>Add Workout</p>
-        <form method="post" action="/api/users" name="user" class="form">
+        <form method="post" action="" class="form" id="exercise_form">
           <label for="ID">Place your ID</label>
           <input
             type="text"
             placeholder="ex: '_12345678'"
             name="ID"
             autocomplete="off"
+            id="ID"
           />
           <label for="description">Exercise Description</label>
           <input

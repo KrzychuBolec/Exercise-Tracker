@@ -89,7 +89,7 @@ const findAndReturnLogs = (id,req,res) =>{
     let from = req.query.from
     let to = req.query.to
 
-    Person.findById(id,{log:{$slice: limitNum}},(err, doc)=>{
+    Person.findById(id,null,{log:{$slice: limitNum}},(err, doc)=>{
         if(err){
             console.log(err)
             res.send(err)

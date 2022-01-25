@@ -85,6 +85,7 @@ const addExercises = (userData, res, done) => {
 
 const findAndReturnLogs = (id,req,res) =>{
     let limitNum = (req.query.limit == undefined)? 0: req.query.limit
+    console.log(`Limit is equal ${limitNum}`)
     let from = req.query.from
     let to = req.query.to
 
